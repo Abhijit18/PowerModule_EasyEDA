@@ -12,6 +12,8 @@ Source: https://oaslananka.github.io/easyeda-mcp-pro/guide/getting-started.html 
 6. From VS Code run/start the workspace MCP server `easyeda-mcp-pro` in the MCP Servers view. Use Copilot agent mode. Test with: `Inspect the focused EasyEDA project and list connected 3V3 nets and pins without changing anything`.
 7. Run `npx easyeda-mcp-pro --doctor` if the bridge is not connected; check firewall/localhost restrictions and MCP server logs. If another `easyeda-mcp-pro` is already registered, remove the duplicate or verify which one is active.
 
+The workspace configuration pins `easyeda-mcp-pro@1.15.6` using `npx.cmd` to match the installed 1.15.6 bridge extension. Start or restart this workspace server from VS Code's MCP Servers controls after changing the configuration. Verify both versions with the live health check before editing; changing a cached package's version field does not replace its code.
+
 ## Permissions and controlled writes
 
 The provided `.vscode/mcp.json` begins with `TOOL_PROFILE=core` and `TOOL_SCOPES` limited to reads; the external MCP implementation's exact profile support may vary by installed release. Consult its runtime `easyeda_get_capabilities` or equivalent and current docs. For editing, **separately** switch to a suitable write-capable profile/scopes as documented by the installed server, restart it, inspect proposed change, and ask user for explicit approval. Where a tool requires `confirmWrite=true`, set it *only after user approval for that specific change*; never assume a prior general instruction is permission to edit any project. Save is separate from mutations.

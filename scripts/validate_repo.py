@@ -44,7 +44,9 @@ def main():
     check(pinset=={f'D{i}' for i in range(2,11)},'GPIO breakout list must preserve D2-D10')
     mcp=json.loads((ROOT/'.vscode/mcp.json').read_text(encoding='utf-8'))
     srv=mcp['servers']['easyeda-mcp-pro']
-    check(srv['command']=='npx' and 'easyeda-mcp-pro' in srv['args'],'Wrong MCP command')
+    check(srv['command'] in ('npx','npx.cmd') and any(
+        arg in ('easyeda-mcp-pro','easyeda-mcp-pro@1.15.6') for arg in srv['args']
+    ),'Wrong MCP command')
     check(srv['env']['TOOL_PROFILE']=='core','Default MCP must start in core profile')
     delta=csv_rows('docs/functional-delta-register.csv')
     must=['STAT_MCP','SWITCH','VBAT_5V','D2-D10','VIN']

@@ -4,6 +4,19 @@
   "maturity": "REQUIREMENTS_ONLY",
   "fabrication_approved": false,
   "baseline_design": "reference/rev-b/easyeda_schematic_standard.json",
+  "owner_scope": {
+    "confirmed_date": "2026-11-19",
+    "microphone_required": false,
+    "battery_backed_loads": ["XIAO ESP32C3"],
+    "relay_required": true,
+    "relay_battery_backup_required": false,
+    "relay_coil_nominal_voltage_V": 5,
+    "relay_supply": "USB-powered 5 V relay substitution approved",
+    "relay_usb_restore_behavior": "Follow current D1 command; retained high may re-energize relay when USB returns (owner approved 2026-11-19)",
+    "manual_master_switch_required": false,
+    "source_selection": "Automatic hardware USB priority; battery on USB loss; USB on restoration",
+    "traceability": "docs/functional-delta-register.csv"
+  },
   "battery": {
     "chemistry": "single-cell Li-ion 18650",
     "nominal_voltage_V": 3.7,
@@ -22,10 +35,9 @@
     "battery_5V_boosted_output_present": false
   },
   "loads": {
-    "microphone_supply_voltage_V": "TBD",
-    "microphone_peak_current_mA": "TBD",
     "wifi_peak_mA": "MEASURE",
     "relay_coil_current_mA": "MEASURE",
+    "relay_supply": "USB_5V; not battery-backed; qualification pending",
     "3v3_available_peak_mA": "MEASURE"
   },
   "power_modes": [
@@ -63,10 +75,6 @@
       "BAT+",
       "BAT-"
     ],
-    "backed_microphone": [
-      "3V3_BACKUP",
-      "GND"
-    ],
     "relay_control": [
       "D1/GPIO3"
     ],
@@ -90,7 +98,6 @@
   "gates": {
     "original_equivalence": "OPEN",
     "cell_holder_mechanical": "OPEN",
-    "microphone_voltage_current": "OPEN",
     "charger_characterization": "OPEN",
     "worst_case_power_budget": "OPEN",
     "native_easyeda_erc": "OPEN",
@@ -134,7 +141,8 @@
     },
     {
       "id": "MIC-001",
-      "status": "OPEN"
+      "status": "REMOVED_BY_OWNER",
+      "reason": "2026-11-19: no microphone; only XIAO needs battery backup"
     },
     {
       "id": "ALT-001",
@@ -160,7 +168,6 @@
   "gate_evidence": {
     "original_equivalence": [],
     "cell_holder_mechanical": [],
-    "microphone_voltage_current": [],
     "charger_characterization": [],
     "worst_case_power_budget": [],
     "native_easyeda_erc": [],

@@ -8,7 +8,7 @@
 4. Test battery connection through a current-limited laboratory source or isolated battery emulator first, if available. Confirm no reverse voltage or unintended charger backfeed.
 5. Insert *approved protected 18650* with correct polarity; measure VBAT and charge behavior; monitor temperature over charging termination. Do not power an unknown cell without a suitable datasheet.
 6. Disconnect USB while scope measures 3V3 min and logic analyzer measures D2 heartbeat. Reconnect. Record reset reasons by reconnecting serial afterward (USB serial disconnect alone is not reboot evidence).
-7. Repeat with microphone operation, Wi-Fi bursts and relay energized. Run 100 transitions and log failures.
+7. Repeat with XIAO Wi-Fi bursts and relay initially energized. Run 100 transitions and log failures. Only XIAO requires battery backup; verify separately approved relay behavior on USB loss/restoration and check for backfeed. No microphone is included.
 8. Test battery under-voltage behavior and charger recovery with a qualified test rig; do not deliberately overdischarge an unprotected cell.
 9. Test relay contact NO/COM/NC with a low-voltage, current-limited load and continuity meter.
 10. Commit actual test results under `evidence/` before approving production outputs.

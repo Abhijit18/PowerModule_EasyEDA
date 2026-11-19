@@ -1,8 +1,8 @@
 # Build milestones
 
-**M0** Import original + Rev B, compare native nets, receive actual microphone module and cell/holder details; establish approval boundaries.
+**M0** Import original + Rev B, compare native nets, receive actual XIAO revision and cell/holder details; establish approval boundaries. Owner scope (2026-11-19): no microphone; XIAO-only backup; retain D1 relay; automatic source selection without a manual master switch.
 
-**M1** Prove XIAO battery/USB switching with test rig, worst case 3V3 current/voltage budget. Choose architecture, exact holder and relay based on measurements. Stop if it cannot power mic/relay.
+**M1** Prove XIAO battery/USB switching with test rig, worst case 3V3 current/voltage budget. Choose architecture, exact holder and separate relay supply based on measurements. Stop if XIAO continuity or relay supply qualification fails.
 
 **M2** Create native EasyEDA Pro Rev C schematic (selected project only), readback all nets/pins, annotate traceability, ERC, electrical review. Commit exported schematic.
 

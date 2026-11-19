@@ -1,13 +1,12 @@
 Ref,Category,Manufacturer_PN,Qty,Mounting,Manufacturer_Data,India_Vendor_URL,Price_INR,Stock,Observed_UTC,Approval,Note
 U1,MCU and charger,Seeed XIAO ESP32C3,1,assembled module on THT carrier,https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/,https://evelta.com/xiao-esp32-c3-2-4ghz-wi-fi-ble-5-0-bluetooth-mesh-iot-dev-board-seeed-studio/,TBD,UNVERIFIED,TBD,PENDING,Check battery pad polarity and revision
-B1,18650 PCB holder,TBD exact model,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,BLOCKED,Must fit actual protected cell length and pin spacing
-BAT1,protected Li-ion 18650,TBD exact cell,1,removable cell,TBD,TBD,TBD,UNVERIFIED,TBD,BLOCKED,Confirm cell permitted charger current and physical length
-K1,3V SPDT relay,SRD-03VDC-SL-C,1,THT,https://evelta.com/srd-3v-15a-1formc-high-power-relay-through-hole-19-2x15-6mm/,https://evelta.com/srd-3v-15a-1formc-high-power-relay-through-hole-19-2x15-6mm/,TBD,UNVERIFIED,TBD,PENDING,May exceed 3V3 current budget under WiFi plus microphone
-Q1,transistor,BC337-40,1,THT,https://www.onsemi.com/pdf/datasheet/bc337-fsc-d.pdf,https://robu.in/product/bc337-40-lge-45v-625mw-250100ma1v-800ma-npn-to-92-3-bipolar-bjt-rohs/,TBD,UNVERIFIED,TBD,PENDING,Verify base drive and TO92 CBE order
-D1,relay flyback diode,1N4007,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,Cathode to coil plus
-R1,base resistor,330 ohm,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,Recalculate for exact transistor and relay current
-R2,base pulldown,47k ohm,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,Ensures relay off during MCU boot
+B1,18650 PCB holder,MPD BH-18650-PC-E,1,THT,https://www.batteryholders.com/uploads/parts/BH-18650-PC-E/datasheets/BH-18650-PC-E.pdf,https://www.digikey.in/en/products/detail/mpd-memory-protection-devices/BH-18650-PC-E/30522827,TBD,UNVERIFIED,2026-11-19,PENDING,Extended 70mm protected-cell candidate; fit and reverse insertion mitigation unverified; see sourcing evidence
+BAT1,protected Li-ion 18650,Keeppower P1826HLT,1,removable cell,https://keeppower.com.cn/products_detail.php?id=729,TBD,TBD,UNVERIFIED,2026-11-19,PENDING,69.2mm length and up to 18.8mm diameter; 4.2V CC-CV; 500mA standard charge; India supply and physical fit unverified
+RLY1,5V SPDT relay,SRD-05VDC-SL-C,1,THT,https://datasheet.lcsc.com/datasheet/pdf/9ddfe54b7529126320ff1ddcabf6bab7.pdf,https://www.varnitronics.com/components/p/srd-05vdc-sl-c-C35449,59.23,VENDOR_REPORT_85837_3_DAYS_OLD,2026-11-19,DRAFT_WIRING_APPROVED,Excludes GST/shipping; vendor dispatch 15-18 working days; symbol coil 4/1 COM5 NC3 NO2; footprint mapping and driver unqualified
+Q1,transistor,BC33740TA,1,THT,https://www.marutsu.co.jp/contents/shop/marutsu/datasheet/BC33740TA.pdf,TBD,TBD,UNVERIFIED,2026-11-19,DRAFT_WIRING_APPROVED,Native C236949 TO-92-3_L4.8-W3.7-P2.54-L C1 B2 E3; verify exact source pinout and drive; no verified Indian source for exact MPN
+D1,relay flyback diode,1N4007-T,1,THT,https://item.szlcsc.com/datasheet/1N4007-T/109574.html,TBD,TBD,UNVERIFIED,2026-11-19,DRAFT_WIRING_APPROVED,Native C108355 DO-41_BD2.4-L4.7-P8.70-D0.9-RD; pin1 K to USB_5V and pin2 A to collector
+R1,base resistor,MF1/4W-120 ohm +/-1% T,1,THT,https://atta.szlcsc.com/upload/public/pdf/source/20190910/C427326_62A6D058BC0FF74963A2F22379CA06CE.pdf,TBD,TBD,UNVERIFIED,2026-11-19,DRAFT_VALUE_APPROVED,Native C119306 120 ohm 0.25W RES-TH_BD2.3-L6.5-P10.50-D0.5; loaded GPIO drive and saturation not qualified
+R2,base pulldown,MF1/4W-47K +/-1%-ST52,1,THT,TBD,TBD,TBD,UNVERIFIED,2026-11-19,DRAFT_WIRING_APPROVED,Native C2857423 47k 0.25W RES-TH_BD2.7-L6.2-P10.20-D0.4; verify startup state
 C1,decoupling bulk capacitor,100uF 16V,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,Check transient current and ESR
-J_MIC,3V3 microphone output,2pin 5.08mm terminal block,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,BLOCKED,3V3 mic only until model verified
-J_RELAY,low voltage dry contacts,3pin 5.08mm terminal block,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,NO COM NC verified against relay
+J1,low voltage dry contacts,KF301-5.0-3P,1,THT,https://item.szlcsc.com/datasheet/KF301-5.0-3P/481500.html,TBD,TBD,UNVERIFIED,2026-11-19,DRAFT_WIRING_APPROVED,Native C474882 CONN-TH_3P-P5.00_KF301-5.0-3P; 5.00mm not 5.08mm; target pins1 NO 2 COM 3 NC; physical correspondence unverified
 J_GPIO,D2 to D10 breakout,2pin 2.54mm header,9,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,9 pairs each GPIO+GND

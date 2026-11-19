@@ -1,15 +1,17 @@
 Net,Proposed_connections,Electrical_status,Validation_requirement
-USB_5V,XIAO USB-C supply (5V isolated),PROPOSED,Verify exact input power circuit and charger availability
+USB_5V,U1.14 to RLY1.4 and D1.1 cathode,WRITE_ACK_ONLY,Branch response lost net name; inspect native net membership; USB input source must be isolated SELV
 BAT_PLUS,18650_holder_plus to XIAO BAT_plus underside pad,PROPOSED,Read XIAO and holder physical manufacturer drawings
 BAT_MINUS,18650_holder_minus to XIAO BAT_minus underside pad and GND as documented,PROPOSED,Verify polarity and return path with actual board
-3V3_BACKUP,XIAO 3V3_OUT to 3.3V microphone and qualified relay coil positive,CONDITIONAL,Measure worst case peak load and transient voltage
-D1_RELAY,XIAO D1 GPIO3 to base resistor then Q1 base,PROPOSED,Confirm XIAO pad mapping and boot state
-RELAY_LOW_SIDE,Q1 collector to K1 coil negative,PROPOSED,Verify current and diode polarity
-GND,Q1 emitter and common GND,PROPOSED,Verify shared return and BAT- wiring
-RELAY_NO,K1 NO to J5 NO,PROPOSED,Verify actual relay bottom view physical pin numbers
-RELAY_COM,K1 COM to J5 COM,PROPOSED,Verify actual relay bottom view physical pin numbers
-RELAY_NC,K1 NC to J5 NC,PROPOSED,Verify actual relay bottom view physical pin numbers
+3V3_BACKUP,XIAO onboard regulated rail for XIAO-only battery backup; no microphone,CONDITIONAL,Measure rail during USB loss/restoration and worst-case Wi-Fi across qualified cell range
+RELAY_SUPPLY,USB_5V to approved SRD-05VDC-SL-C coil positive; not XIAO 3V3,PROPOSED,Owner approved release on USB loss and following current D1 on restoration; verify physical pins and supply budget
+D1_GPIO3,U1.2 D1 GPIO3 to R1.1 120 ohm,WRITE_ACK_ONLY,Verify native membership and loaded GPIO drive
+RELAY_BASE,R1.2 to Q1.2 base and R2.2 47k pulldown,WRITE_ACK_ONLY,Verify native membership and saturation plus boot state
+RELAY_COIL_LOW,Q1.1 collector to RLY1.1 coil and D1.2 anode,WRITE_ACK_ONLY,Verify native membership and diode polarity; test base-collector backfeed when USB absent
+GND,Q1.3 emitter and R2.1 to existing common GND,WRITE_ACK_ONLY,Verify 13-node GND membership; BAT- still unconnected
+RELAY_NO,RLY1.2 to J1.1,WRITE_TIMED_OUT,Inspect before retry; operation may have landed; verify footprint pad mapping
+RELAY_COM,RLY1.5 to J1.2,PROPOSED,Not wired yet; verify actual relay bottom view physical pin numbers
+RELAY_NC,RLY1.3 to J1.3,PROPOSED,Not wired yet; verify actual relay bottom view physical pin numbers
 D2_TO_D10,XIAO D2-D10 to individual header pins with ground pairs,PROPOSED,Compare native netlist against original
-CHARGE_STAT,D0 charger status tap if explicitly approved,OPEN,Identify correct charger node and valid voltage on exact XIAO revision
-SWITCH_OR_EN,Owner-defined OFF behavior,OPEN,EN-only cannot be called physical master disconnect
-BATTERY_BACKED_5V,Not implemented unless confirmed microphone needs 5V,OPEN,Original had TPS61023 backup 5V stage
+CHARGE_STAT,D0 must report actual charger status (owner confirmed),OPEN,Verify charger status node and GPIO voltage on exact XIAO revision
+SWITCH_OR_EN,No manual master switch; automatic hardware USB priority and battery fallback (owner confirmed 2026-11-19),OPEN,Verify onboard path on actual XIAO; no GPIO or relay source switching; scope transfer continuity
+BATTERY_BACKED_5V,Not required for owner-approved XIAO-only backup scope (2026-11-19),OWNER_APPROVED_SCOPE,Original had TPS61023 backup 5V stage; do not claim a backed 5V output

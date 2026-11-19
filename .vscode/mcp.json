@@ -2,10 +2,10 @@
   "servers": {
     "easyeda-mcp-pro": {
       "type": "stdio",
-      "command": "npx",
+      "command": "npx.cmd",
       "args": [
         "-y",
-        "easyeda-mcp-pro"
+        "easyeda-mcp-pro@1.15.6"
       ],
       "env": {
         "TOOL_PROFILE": "core"

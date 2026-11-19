@@ -7,7 +7,7 @@
 ## Gate 1: electrical architecture
 - BAT+/BAT- correctly wired to exact XIAO model and protected cell.
 - Supplier documentation for charger and power path reviewed for actual product revision.
-- Microphone supply and peak current known. 5 V-only loads not connected to 3V3.
+- Owner scope (2026-11-19): no microphone; only XIAO requires battery backup. Qualify the separate relay supply; never apply USB 5 V directly to a 3 V coil.
 - Main input defined: isolated USB-C 5V. Alternative header not asserted to charge without verification.
 - Transistor base drive, relay coil current, startup off, flyback direction, trace width and rail droop calculated and bench-confirmed.
 - Battery thermal safety / charging current / over-discharge and holder reverse-polarity behavior reviewed.
@@ -24,7 +24,7 @@
 
 ## Gate 4: prototype tests
 - Repeat `docs/test-matrix.csv`, supply 5V off/on with oscilloscope on 3V3 + logic analyzer on heartbeat. Zero resets during 100 cycles at peak load.
-- Verify charger termination/heat, battery undervoltage protection, relay ON and OFF, microphone audio continuity/no glitches.
+- Verify charger termination/heat, battery undervoltage protection, relay ON and OFF, and approved relay behavior on USB loss/restoration without XIAO reset.
 - Use documented test instruments, date, board revision and captured evidence.
 
 ## Gate 5: manual approval

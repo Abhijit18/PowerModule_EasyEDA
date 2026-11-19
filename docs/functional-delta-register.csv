@@ -1,11 +1,13 @@
 Interface,Original_2024,RevB_Draft,RevC_Target,Status,Action
 VBUS input,5V USB-C and external connector,XIAO USB-C preferred with alternate Schottky connector,5V input proven and no backfeed,OPEN,Check USB and external 5V power paths
 VBAT cell,2-pin external 3.7V connector,J2 to XIAO BAT via pigtails,THT 18650 holder with protection and BAT wiring,OPEN,Verify holder mechanical and actual BAT pads
-VBAT_5V boosted output,TPS61023 boosted 5V,Removed,Restore if microphone requires 5V,OPEN,Determine microphone voltage and load
-VIN switchover,TPS2116 5V selector,Uses XIAO onboard power path,Demonstrated no MCU/mic reset,OPEN,Scope tests on real XIAO hardware
+VBAT_5V boosted output,TPS61023 boosted 5V,Removed,No backed 5V required for XIAO-only backup,OWNER_APPROVED_SCOPE,2026-11-19 owner requires backup for XIAO only; no microphone; relay backup not required
+VIN switchover,TPS2116 5V selector,Uses XIAO onboard power path,Automatic USB priority and battery fallback without XIAO reset,OPEN,Verify exact module circuit and scope USB loss/restoration under Wi-Fi peaks
 Charger,MCP73831 from VBUS,XIAO charger USB-C path,Verified charging current and termination,OPEN,Measure charging and heat
 STAT_MCP,D0 charge status,Optional wire tap; otherwise constant pullup,Real status or approved explicit loss,OPEN,Identify exact charger status pad
-SWITCH,CN12 switch on VIN,EN optional wire tap (not master power),Approved switch semantics,OPEN,Confirm intended user behavior
-RELAY,D1 to 5V relay driver,D1 to BC337 3V relay,Relay coil safe budget+OFF at reset,OPEN,Verify GPIO and coil current
+SWITCH,CN12 switch on VIN,EN optional wire tap (not master power),No manual master switch; automatic hardware source selection,OWNER_APPROVED_SCOPE,2026-11-19 owner supersedes physical load disconnect request; transfer validation remains OPEN under VIN
+RELAY,D1 to 5V relay driver,D1 to BC337 3V relay,D1 to BC337 USB-powered 5V relay; OFF at reset,OPEN,2026-11-19 owner approved 5V substitution; verify driver and coil budget
 External GPIO,D2-D10 plus GND,Same headers,Native netlist readback D2-D10,OPEN,Use MCP native nets
-NO COM NC,5V relay dry contacts,3V changeover relay contacts,Correct DC-only contact mapping,OPEN,Verify pin orientation and clearances
+NO COM NC,5V relay dry contacts,3V changeover relay contacts,5V changeover relay with correct DC-only contact mapping,OPEN,Verify pin orientation and clearances
+Microphone,Not shown in original image,Proposed backed 3V3 microphone,Removed from Rev C,OWNER_APPROVED_SCOPE,2026-11-19 owner explicitly requires no microphone
+Relay backup,Relay powered by backed VIN,Relay on backed XIAO 3V3,USB-powered 5V relay releases on USB loss and follows current D1 on restoration,OPEN,2026-11-19 owner approved retained-high re-energization; verify release and restoration and base-collector backfeed on hardware

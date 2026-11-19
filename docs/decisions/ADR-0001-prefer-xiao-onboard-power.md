@@ -3,15 +3,15 @@
 Status: **PROPOSED / NOT VALIDATED** (2026-11-19)
 
 ## Problem
-Owner wants no CPU/microphone reset when mains-derived isolated 5V disappears and returns, while 18650 charges with power restored, without costly TPS2116/TPS61023/MCP73831 custom SMD board and without cutting functionality.
+Owner scope clarified 2026-11-19: no microphone, XIAO-only battery backup, retained D1 relay, and automatic USB-priority source selection without a manual master switch. XIAO must not reset when isolated USB 5V disappears and returns, while the protected 18650 charges with USB present.
 
 ## Candidate
 Investigate use of existing XIAO ESP32-C3 onboard charge + supply path for a 3V3-only system with a protected 18650 THT holder; retain relay with D1/GPIO3 transistor driver.
 
 ## Constraints and tradeoffs
-- Dedicated power-stage boosted battery 5V is removed, so this is **not equivalent** if microphone or peripherals require battery-backed 5V.
-- No proof yet that charging works from external 5V pin or that 3V3 remains uninterrupted at low VBAT plus high Wi-Fi/microphone/relay load.
-- STAT_MCP and main switch semantics need owner-approved replacements or exceptions.
+- Dedicated battery-backed 5V is not required by the clarified XIAO-only backup scope; this is an owner-approved functional change, not original equivalence.
+- No measured proof yet of charging via an alternate 5V input or uninterrupted 3V3 at low VBAT plus peak Wi-Fi load. A separate USB-derived relay supply is proposed and needs qualification.
+- Real STAT_MCP remains required. Automatic hardware source selection replaces the manual SWITCH requirement; transfer testing remains open.
 - No software source-select solution can keep MCU alive if its own supply has failed.
 
 ## Acceptance evidence needed
