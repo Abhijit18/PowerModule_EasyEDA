@@ -1,0 +1,17 @@
+Reference,Part,Qty,Type,India_sourcing_search,Critical_note
+U1,Seeed XIAO ESP32C3,1,preassembled module THT carrier,https://robu.in/?s=xiao+esp32c3&post_type=product,Integrated lithium charger ~380mA
+K1,SRD-03VDC-SL-C 3V SPDT relay,1,THT,https://evelta.com/srd-3v-15a-1formc-high-power-relay-through-hole-19-2x15-6mm/,Must verify footprint and 3.3V maximum coil rating
+Q1,BC337-40 transistor TO-92,1,THT,https://robu.in/?s=BC337&post_type=product,Pinout check C-B-E
+D1,1N5819 1A Schottky,1,THT,https://robu.in/?s=1N5819&post_type=product,Alternative screw-terminal 5V input protection
+D2,1N4007 flyback,1,THT,https://robu.in/?s=1N4007&post_type=product,Cathode to backed 3V3
+R1,330 ohm 0.25W,1,THT,https://robu.in/?s=330+ohm+resistor&post_type=product,BC337 base
+R2-R3,47k 0.25W,2,THT,https://robu.in/?s=47k+resistor&post_type=product,Pulldown and charge status pullup
+R4,10k 0.25W,1,THT,https://robu.in/?s=10k+resistor&post_type=product,Optional charge status series
+C1,100uF >=6.3V radial electrolytic,1,THT,https://robu.in/?s=100uf+electrolytic&post_type=product,Near 3V3 backed relay
+J1 J2 J4,2-pin 5.08mm THT terminal block,3,THT,https://robu.in/?s=2+pin+terminal+block+5.08&post_type=product,Battery polarity; insulated 5V adapter only
+J5,3-pin 5.08mm THT terminal block,1,THT,https://robu.in/?s=3+pin+terminal+block+5.08&post_type=product,Low voltage relay dry contacts
+J6-J14,2-pin 2.54mm THT header,9,THT,https://robu.in/?s=2+pin+header+2.54&post_type=product,GPIO with paired GND
+J3,2-pin 2.54mm THT solder wire link,1,THT,https://robu.in/?s=2+pin+header+2.54&post_type=product,Two insulated wires connect to module bottom battery pads
+J16,1-pin 2.54mm pad,1,THT,https://robu.in/?s=pin+header&post_type=product,OPTIONAL /CHG pad tap; verify XIAO location
+J17,2-pin terminal block switch connector,1,THT,https://robu.in/?s=2+pin+terminal+block+5.08&post_type=product,OPTIONAL: short to hold EN low via J18
+J18,1-pin 2.54mm EN tap pad,1,THT,https://robu.in/?s=pin+header&post_type=product,OPTIONAL insulated wire to XIAO EN testpad

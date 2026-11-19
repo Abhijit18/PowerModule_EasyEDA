@@ -1,0 +1,20 @@
+name: AI Engineering Context CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate-context:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate context files and requirements
+        run: python scripts/validate_repo.py
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Context check only (not an ERC/DRC or electrical test)
+        run: echo "Design/fabrication release NOT approved by this job"

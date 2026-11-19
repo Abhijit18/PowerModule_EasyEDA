@@ -1,0 +1,3 @@
+# User-approved direction vs image-generation limitations
+
+The user has requested a realistic PCB with (a) removable **cylindrical 18650 cell holder on the board**, and (b) a **visibly traceable relay control net from XIAO D1/GPIO3 via transistor to coil**. The previous 3D illustrations are **conceptual AI art** and not actual PCB CAD geometry. They should not be included as footprint/pin-order evidence. In actual EasyEDA Pro, generate an authentic board 3D view only after selecting the exact 18650 holder + transistor + relay footprints and mapping nets correctly. Be careful about side-of-board, orientation, protected battery cell length, antenna and insert/remove clearances.

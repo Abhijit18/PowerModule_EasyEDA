@@ -1,0 +1,30 @@
+name: Electrical design change
+about: Proposed source-verified change to Rev C electronics
+body:
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Current observed electrical/net evidence
+      description: Include origin, part reference, schematic pin names and datasheets
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Exact planned changes and reason
+    validations:
+      required: true
+  - type: textarea
+    id: hazards
+    attributes:
+      label: Battery, current, thermal, and function preservation risks
+    validations:
+      required: true
+  - type: checkboxes
+    id: guards
+    attributes:
+      label: Release gates
+      options:
+        - label: Native EasyEDA net readback compared (or explicit NOT_RUN)
+        - label: User approves all MCP writes before apply
+        - label: Manufacturing release is not presumed

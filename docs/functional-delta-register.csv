@@ -1,0 +1,11 @@
+Interface,Original_2024,RevB_Draft,RevC_Target,Status,Action
+VBUS input,5V USB-C and external connector,XIAO USB-C preferred with alternate Schottky connector,5V input proven and no backfeed,OPEN,Check USB and external 5V power paths
+VBAT cell,2-pin external 3.7V connector,J2 to XIAO BAT via pigtails,THT 18650 holder with protection and BAT wiring,OPEN,Verify holder mechanical and actual BAT pads
+VBAT_5V boosted output,TPS61023 boosted 5V,Removed,Restore if microphone requires 5V,OPEN,Determine microphone voltage and load
+VIN switchover,TPS2116 5V selector,Uses XIAO onboard power path,Demonstrated no MCU/mic reset,OPEN,Scope tests on real XIAO hardware
+Charger,MCP73831 from VBUS,XIAO charger USB-C path,Verified charging current and termination,OPEN,Measure charging and heat
+STAT_MCP,D0 charge status,Optional wire tap; otherwise constant pullup,Real status or approved explicit loss,OPEN,Identify exact charger status pad
+SWITCH,CN12 switch on VIN,EN optional wire tap (not master power),Approved switch semantics,OPEN,Confirm intended user behavior
+RELAY,D1 to 5V relay driver,D1 to BC337 3V relay,Relay coil safe budget+OFF at reset,OPEN,Verify GPIO and coil current
+External GPIO,D2-D10 plus GND,Same headers,Native netlist readback D2-D10,OPEN,Use MCP native nets
+NO COM NC,5V relay dry contacts,3V changeover relay contacts,Correct DC-only contact mapping,OPEN,Verify pin orientation and clearances

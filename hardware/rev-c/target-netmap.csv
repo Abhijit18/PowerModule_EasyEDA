@@ -1,0 +1,15 @@
+Net,Proposed_connections,Electrical_status,Validation_requirement
+USB_5V,XIAO USB-C supply (5V isolated),PROPOSED,Verify exact input power circuit and charger availability
+BAT_PLUS,18650_holder_plus to XIAO BAT_plus underside pad,PROPOSED,Read XIAO and holder physical manufacturer drawings
+BAT_MINUS,18650_holder_minus to XIAO BAT_minus underside pad and GND as documented,PROPOSED,Verify polarity and return path with actual board
+3V3_BACKUP,XIAO 3V3_OUT to 3.3V microphone and qualified relay coil positive,CONDITIONAL,Measure worst case peak load and transient voltage
+D1_RELAY,XIAO D1 GPIO3 to base resistor then Q1 base,PROPOSED,Confirm XIAO pad mapping and boot state
+RELAY_LOW_SIDE,Q1 collector to K1 coil negative,PROPOSED,Verify current and diode polarity
+GND,Q1 emitter and common GND,PROPOSED,Verify shared return and BAT- wiring
+RELAY_NO,K1 NO to J5 NO,PROPOSED,Verify actual relay bottom view physical pin numbers
+RELAY_COM,K1 COM to J5 COM,PROPOSED,Verify actual relay bottom view physical pin numbers
+RELAY_NC,K1 NC to J5 NC,PROPOSED,Verify actual relay bottom view physical pin numbers
+D2_TO_D10,XIAO D2-D10 to individual header pins with ground pairs,PROPOSED,Compare native netlist against original
+CHARGE_STAT,D0 charger status tap if explicitly approved,OPEN,Identify correct charger node and valid voltage on exact XIAO revision
+SWITCH_OR_EN,Owner-defined OFF behavior,OPEN,EN-only cannot be called physical master disconnect
+BATTERY_BACKED_5V,Not implemented unless confirmed microphone needs 5V,OPEN,Original had TPS61023 backup 5V stage

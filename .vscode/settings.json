@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.kicad_sch": "plaintext",
+    "*.kicad_pcb": "plaintext"
+  }
+}

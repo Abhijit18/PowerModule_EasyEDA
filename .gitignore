@@ -1,0 +1,19 @@
+# Never commit credentials, live MCP state, lab machine captures, binary temporary autosaves
+.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+Thumbs.db
+*.bak
+*.autosave
+*.lck
+*.kicad_prl
+*.kicad_sch-bak
+*.kicad_pcb-bak
+local-only/
+evidence/private/
+manufacturing/exported/

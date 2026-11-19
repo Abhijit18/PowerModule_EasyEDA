@@ -1,0 +1,13 @@
+Ref,Category,Manufacturer_PN,Qty,Mounting,Manufacturer_Data,India_Vendor_URL,Price_INR,Stock,Observed_UTC,Approval,Note
+U1,MCU and charger,Seeed XIAO ESP32C3,1,assembled module on THT carrier,https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/,https://evelta.com/xiao-esp32-c3-2-4ghz-wi-fi-ble-5-0-bluetooth-mesh-iot-dev-board-seeed-studio/,TBD,UNVERIFIED,TBD,PENDING,Check battery pad polarity and revision
+B1,18650 PCB holder,TBD exact model,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,BLOCKED,Must fit actual protected cell length and pin spacing
+BAT1,protected Li-ion 18650,TBD exact cell,1,removable cell,TBD,TBD,TBD,UNVERIFIED,TBD,BLOCKED,Confirm cell permitted charger current and physical length
+K1,3V SPDT relay,SRD-03VDC-SL-C,1,THT,https://evelta.com/srd-3v-15a-1formc-high-power-relay-through-hole-19-2x15-6mm/,https://evelta.com/srd-3v-15a-1formc-high-power-relay-through-hole-19-2x15-6mm/,TBD,UNVERIFIED,TBD,PENDING,May exceed 3V3 current budget under WiFi plus microphone
+Q1,transistor,BC337-40,1,THT,https://www.onsemi.com/pdf/datasheet/bc337-fsc-d.pdf,https://robu.in/product/bc337-40-lge-45v-625mw-250100ma1v-800ma-npn-to-92-3-bipolar-bjt-rohs/,TBD,UNVERIFIED,TBD,PENDING,Verify base drive and TO92 CBE order
+D1,relay flyback diode,1N4007,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,Cathode to coil plus
+R1,base resistor,330 ohm,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,Recalculate for exact transistor and relay current
+R2,base pulldown,47k ohm,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,Ensures relay off during MCU boot
+C1,decoupling bulk capacitor,100uF 16V,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,Check transient current and ESR
+J_MIC,3V3 microphone output,2pin 5.08mm terminal block,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,BLOCKED,3V3 mic only until model verified
+J_RELAY,low voltage dry contacts,3pin 5.08mm terminal block,1,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,NO COM NC verified against relay
+J_GPIO,D2 to D10 breakout,2pin 2.54mm header,9,THT,TBD,TBD,TBD,UNVERIFIED,TBD,PENDING,9 pairs each GPIO+GND

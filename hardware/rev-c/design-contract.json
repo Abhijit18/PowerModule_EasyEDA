@@ -1,0 +1,177 @@
+{
+  "project": "XIAO ESP32-C3 UPS 18650 Rev C",
+  "revision": "C",
+  "maturity": "REQUIREMENTS_ONLY",
+  "fabrication_approved": false,
+  "baseline_design": "reference/rev-b/easyeda_schematic_standard.json",
+  "battery": {
+    "chemistry": "single-cell Li-ion 18650",
+    "nominal_voltage_V": 3.7,
+    "cells_series": 1,
+    "protection": "REQUIRED",
+    "holder_type": "through-hole single-cell PCB mount",
+    "exact_holder_mpn": "TBD",
+    "exact_cell_mpn": "TBD",
+    "polarity_verified": false
+  },
+  "controller": {
+    "part": "Seeed XIAO ESP32C3",
+    "relay_command_board_pin": "D1",
+    "relay_command_soc_gpio": 3,
+    "battery_charging": "onboard hardware charger; verify USB-C path",
+    "battery_5V_boosted_output_present": false
+  },
+  "loads": {
+    "microphone_supply_voltage_V": "TBD",
+    "microphone_peak_current_mA": "TBD",
+    "wifi_peak_mA": "MEASURE",
+    "relay_coil_current_mA": "MEASURE",
+    "3v3_available_peak_mA": "MEASURE"
+  },
+  "power_modes": [
+    {
+      "name": "USB_5V_PRESENT",
+      "input": "USB-C 5V",
+      "source_selected": "XIAO built-in hardware power path per actual vendor schematic",
+      "battery": "CHARGE AS NECESSARY, verified on hardware only",
+      "rail": "3V3_BACKUP",
+      "verified": false
+    },
+    {
+      "name": "USB_5V_LOST",
+      "input": "USB-C 0V",
+      "source_selected": "protected 18650 through onboard power path",
+      "battery": "DISCHARGE",
+      "rail": "3V3_BACKUP",
+      "verified": false
+    },
+    {
+      "name": "USB_5V_RESTORED",
+      "input": "USB-C 5V",
+      "source_selected": "XIAO hardware input",
+      "battery": "CHARGE AS NECESSARY",
+      "rail": "3V3_BACKUP",
+      "verified": false
+    }
+  ],
+  "interfaces": {
+    "power_input": [
+      "USB_5V",
+      "GND"
+    ],
+    "battery": [
+      "BAT+",
+      "BAT-"
+    ],
+    "backed_microphone": [
+      "3V3_BACKUP",
+      "GND"
+    ],
+    "relay_control": [
+      "D1/GPIO3"
+    ],
+    "relay_contacts": [
+      "NO",
+      "COM",
+      "NC"
+    ],
+    "breakouts": [
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "D8",
+      "D9",
+      "D10"
+    ]
+  },
+  "gates": {
+    "original_equivalence": "OPEN",
+    "cell_holder_mechanical": "OPEN",
+    "microphone_voltage_current": "OPEN",
+    "charger_characterization": "OPEN",
+    "worst_case_power_budget": "OPEN",
+    "native_easyeda_erc": "OPEN",
+    "native_easyeda_drc": "OPEN",
+    "scope_switchover": "OPEN",
+    "battery_safety": "OPEN",
+    "fabrication_review": "OPEN"
+  },
+  "requirements": [
+    {
+      "id": "PWR-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "PWR-002",
+      "status": "OPEN"
+    },
+    {
+      "id": "PWR-003",
+      "status": "OPEN"
+    },
+    {
+      "id": "CHG-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "RLY-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "IOP-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "OUT-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "SAFE-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "MIC-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "ALT-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "STAT-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "SW-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "B5V-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "MFG-001",
+      "status": "OPEN"
+    }
+  ],
+  "gate_evidence": {
+    "original_equivalence": [],
+    "cell_holder_mechanical": [],
+    "microphone_voltage_current": [],
+    "charger_characterization": [],
+    "worst_case_power_budget": [],
+    "native_easyeda_erc": [],
+    "native_easyeda_drc": [],
+    "scope_switchover": [],
+    "battery_safety": [],
+    "fabrication_review": []
+  },
+  "power_mode_evidence": {
+    "USB_5V_PRESENT": [],
+    "USB_5V_LOST": [],
+    "USB_5V_RESTORED": []
+  }
+}
